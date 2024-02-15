@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    
+
+    
+    function playgame() {
+      let rounds = 5;
+      let compscore = 0;
+      let playerscore = 0;
+      for (let i = 0; i < rounds; i++) {
+        const playerSelection = prompt("enter your choise");
+        const computerSelection = getcomputerSelection();
+        let winner = playRound(playerSelection, computerSelection);
+        if (winner.includes('win')) {
+          playerscore++;
+        }
+        else if (winner.includes('lose')) {
+          compscore++;
+
+        }
+        console.log("winner");
+
+      }
+      console.log(compscore);
+      console.log(playerscore);
+
+    }
+
+    function playRound(playerSelection, computerSelection) {
+      // your code here!
+      if (playerSelection == "rock") {
+        if (playerSelection == "rock" && computerSelection == "paper") {
+          return "You Lose!";
+        }
+        else if (playerSelection == "rock" && computerSelection == "rock") {
+          return "Draw";
+        }
+        else {
+          return "You win!";
+        }
+      }
+      if (playerSelection == "paper") {
+        if (playerSelection == "paper" && computerSelection == "scissors") {
+          return "You lose!";
+        }
+        else if (playerSelection == "rock" && computerSelection == "rock") {
+          return"Draw";
+        }
+        else {
+          return"You win!";
+        }
+
+      }
+      if (playerSelection == "scissors") {
+        if (playerSelection == "scissors" && computerSelection == "rock") {
+          return"You lose!";
+        }
+        else if (playerSelection == "scissors" && computerSelection == "scissors") {
+          return"Draw";
+        }
+        else {
+          return"You win!";
+        }
+
+      }
+
+    }
+    function getcomputerSelection() {
+      let choise = ["rock", "paper", "scissors"]
+      let crandom = Math.floor(Math.random() * 3);
+      return choise[crandom];
+    }
+    console.log(playgame())
+
+
+
+
+
+
+  </script>
+</body>
+
+</html>
